@@ -40,7 +40,6 @@ for position in range(len(passwordList), 47):
 		for c in ascii_lowercase:
 			regexInput = '^{}{}'.format(password, c)
 			if checkRegex(regexInput):
-				#print('correct = {} : {}'.format(position, c))
 				print('char = {}'.format(c))
 				passwordList.append(c)
 				break
@@ -48,7 +47,6 @@ for position in range(len(passwordList), 47):
 		for c in ascii_uppercase:
 			regexInput = '^{}{}'.format(password, c)
 			if checkRegex(regexInput):
-				#print('correct = {} : {}'.format(position, c))
 				print('char = {}'.format(c))
 				passwordList.append(c)
 				break
@@ -56,14 +54,11 @@ for position in range(len(passwordList), 47):
 		for c in range(10):
 			regexInput = '^{}{}'.format(password, c)
 			if checkRegex(regexInput):
-				#print('correct = {} : {}'.format(position, c))
 				print('char = {}'.format(c))
 				passwordList.append(str(c))
 				break
 	else:
 		c = correctCharType
-		#print('{} : {}'.format(position, c))
-		#print('correct = {} : {}'.format(position, c))
 		print('char = {}'.format(c))
 		passwordList.append(c)
 
